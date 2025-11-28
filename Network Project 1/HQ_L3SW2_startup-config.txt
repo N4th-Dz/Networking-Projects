@@ -1,0 +1,206 @@
+!
+version 16.3.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname HQ-L3SW2
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+no ip cef
+ip routing
+!
+no ipv6 cef
+!
+!
+!
+username nath secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip domain-name cisco.com
+!
+!
+spanning-tree mode pvst
+spanning-tree vlan 1,10,20,30 priority 28672
+!
+!
+!
+!
+!
+!
+interface Port-channel4
+ switchport mode trunk
+!
+interface Port-channel5
+ switchport mode trunk
+!
+interface Port-channel6
+ switchport mode trunk
+!
+interface GigabitEthernet1/0/1
+ no switchport
+ ip address 192.168.1.6 255.255.255.252
+ ip ospf priority 0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet1/0/2
+ switchport mode trunk
+ channel-group 4 mode active
+!
+interface GigabitEthernet1/0/3
+ switchport mode trunk
+ channel-group 4 mode active
+!
+interface GigabitEthernet1/0/4
+ switchport mode trunk
+ channel-group 5 mode active
+!
+interface GigabitEthernet1/0/5
+ switchport mode trunk
+ channel-group 5 mode active
+!
+interface GigabitEthernet1/0/6
+ switchport mode trunk
+ channel-group 6 mode active
+!
+interface GigabitEthernet1/0/7
+ switchport mode trunk
+ channel-group 6 mode active
+!
+interface GigabitEthernet1/0/8
+!
+interface GigabitEthernet1/0/9
+!
+interface GigabitEthernet1/0/10
+!
+interface GigabitEthernet1/0/11
+!
+interface GigabitEthernet1/0/12
+!
+interface GigabitEthernet1/0/13
+!
+interface GigabitEthernet1/0/14
+!
+interface GigabitEthernet1/0/15
+!
+interface GigabitEthernet1/0/16
+!
+interface GigabitEthernet1/0/17
+!
+interface GigabitEthernet1/0/18
+!
+interface GigabitEthernet1/0/19
+!
+interface GigabitEthernet1/0/20
+!
+interface GigabitEthernet1/0/21
+!
+interface GigabitEthernet1/0/22
+!
+interface GigabitEthernet1/0/23
+!
+interface GigabitEthernet1/0/24
+!
+interface GigabitEthernet1/1/1
+!
+interface GigabitEthernet1/1/2
+!
+interface GigabitEthernet1/1/3
+!
+interface GigabitEthernet1/1/4
+!
+interface Vlan1
+ ip address 192.168.4.3 255.255.255.0
+ standby 1 ip 192.168.4.1
+!
+interface Vlan10
+ mac-address 00e0.f956.6401
+ ip address 192.168.10.3 255.255.255.0
+ ip helper-address 172.16.18.4
+ ip access-group USER-ACCESS-CONTROL in
+ standby 10 ip 192.168.10.1
+!
+interface Vlan20
+ mac-address 00e0.f956.6402
+ ip address 192.168.20.3 255.255.255.0
+ ip helper-address 172.16.18.4
+ ip access-group USER-ACCESS-CONTROL in
+ standby 20 ip 192.168.20.1
+!
+interface Vlan30
+ mac-address 00e0.f956.6403
+ ip address 192.168.30.3 255.255.255.0
+ ip helper-address 172.16.18.4
+ ip access-group USER-ACCESS-CONTROL in
+ standby 30 ip 192.168.30.1
+!
+router ospf 100
+ router-id 3.3.3.3
+ log-adjacency-changes
+ network 192.168.1.4 0.0.0.3 area 10
+ network 192.168.10.0 0.0.0.255 area 10
+ network 192.168.20.0 0.0.0.255 area 10
+ network 192.168.30.0 0.0.0.255 area 10
+ network 192.168.4.0 0.0.0.255 area 10
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.1.5 
+!
+ip flow-export version 9
+!
+!
+ip access-list extended USER-ACCESS-CONTROL
+ remark Allow DHCP relay traffic
+ permit udp 192.168.0.0 0.0.31.255 host 172.16.18.4 eq bootps
+ remark Allow DNS (UDP and TCP 53)
+ permit udp 192.168.0.0 0.0.31.255 host 172.16.18.6 eq domain
+ remark Allow HTTP and HTTPS to Web Servers
+ permit tcp 192.168.0.0 0.0.31.255 host 172.16.18.5 eq www
+ permit tcp 192.168.0.0 0.0.31.255 host 172.16.18.7 eq www
+ permit tcp 192.168.0.0 0.0.31.255 host 172.16.18.5 eq 443
+ permit tcp 192.168.0.0 0.0.31.255 host 172.16.18.7 eq 443
+ remark Block remote access to network devices
+ deny tcp 192.168.0.0 0.0.31.255 any eq 22
+ remark Allow ICMP for connectivity testing
+ permit icmp 192.168.0.0 0.0.31.255 any
+ remark Allow all other outbound internet traffic
+ permit ip 192.168.0.0 0.0.31.255 any
+!
+!
+!
+!
+!
+line con 0
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
+
