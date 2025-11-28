@@ -1,8 +1,8 @@
 <H1> HQ Site <> Branch Site Network Infrastructure </h1> 
 
 #######################################################################################################################################################
-This project simulates a two-office enterprise network consisting of an HQ Site and a Branch Site, connected through an ISP Main and ISP Backup network.
-All communication between offices traverses a secure IPSec Site-to-Site VPN Tunnel, ensuring encrypted data transmission to Branch-hosted servers.
+This project simulates a complete enterprise network connecting two sites—HQ Office and Branch Office—through redundant ISP paths using secure IPSec VPN tunnels. 
+The Branch office hosts all critical network services, while both sites are designed for high availability, scalability, and secure communication.
 ########################################################################################################################################################
 
-<H2> Network Overview </h2>
+<H2> Network Overview </h2> 
