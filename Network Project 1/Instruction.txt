@@ -1,1 +1,19 @@
-hh
+######################################################
+#####<h2> NOTE: CREDENTIALS OF EACH DEVICES </h2>#####
+######################################################
+
+<h3> All Network Devices </h3>
+
+Line Console Credentials
+username: nath
+password: cisco
+
+Enable Credentials
+password: cisco
+
+SSH Remote Access Credentials
+username: nath
+password: cisco
+
+
+
