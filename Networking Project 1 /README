@@ -5,6 +5,20 @@ This project simulates a complete enterprise network connecting two sites—HQ O
 The Branch office hosts all critical network services (DNS, DHCP, WEB Servers), while both sites are designed for high availability, scalability, and secure communication.
 ######################################################################################################################################################################################
 
+🛠️ Implemented Features and Technologies
+1. Enterprise Network Architecture
+
+
+
+
+
+
+
+
+
+
+
+
 🖥️ Network Devices Used 
 Cisco ISR 4331 Routers:
   - HQ Core Router
@@ -18,7 +32,14 @@ Cisco Catalyst 3650 L3 Switches:
 Cisco Catalyst 2960 L2 Switches
   - Access Switches (HQ and Branch)
 
-## Technology Used
+
+
+
+
+
+
+
+
 
 
 
