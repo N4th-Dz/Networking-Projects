@@ -1,0 +1,18 @@
+HQ Office Network Information
+
+- 3 Departments separated by 3 Vlans
+  - Customer Service Department (Vlan 10)
+  - HR Department (Vlan 20)
+  - Marketing Department (Vlan 30)
+
+
+Branch Office Network Information
+
+- 2 Departments and where Servers are hosted
+  - IT Department (Vlan 17)
+  - Security Department (Vlan 16)
+  - Server (DHCP, DNS, Web Servers) (Vlan 15)
+  - Server2 (Secret Servers) (Vlan 30)
+
+#################################################################
+
