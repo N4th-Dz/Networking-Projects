@@ -24,16 +24,16 @@ The Branch office hosts all critical network services (DNS, DHCP, WEB Servers), 
   - Prevents loops and optimizes traffic per VLAN
 
 6. Port Security
-   - Applied to access ports to secure end devices
+  - Applied to access ports to secure end devices
 
 7. Access Control List (ACL)
-   - Secures the network by controlling allowed traffic
+  - Secures the network by controlling allowed traffic
 
 8. Network Address Translation (NAT)
-   - Applied NAT to edge router for traffic going to the internet via ISP
+  - Applied NAT to edge router for traffic going to the internet via ISP
   
 9. IPSEC Site-to-Site VPN Tunnel
-   -  Encrypts traffic within the organization (From HQ to Branch and vice versa) for secure internal communication
+  -  Encrypts traffic within the organization (From HQ to Branch and vice versa) for secure internal communication
   
 10. SSH Remote Access
   - Secure administrative access to network devices
