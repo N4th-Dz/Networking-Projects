@@ -64,4 +64,9 @@ Instruction:
             <img width="669" height="121" alt="image" src="https://github.com/user-attachments/assets/86472a74-ef40-4464-b91a-e72a58bd0841" />
 
       C. Test for ACL
-         - You can 
+         ACL Information
+         - Any host in the HQ Office can only access the servers in Server Vlan in the Branch Office (DHCP, DNS, WEB Server)
+         - Any host in IT Department are only allowed to establish remote session from any devices in the topology including the HQ Office and Branch Office
+         - Any Servers in the Server2 Vlan can only be accessed by IT Department as well
+   
+         - You can check and veriify these ACL policies by performing a ping and ssh from each devices
